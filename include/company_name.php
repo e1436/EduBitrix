@@ -1,1 +1,1 @@
-<img src="/include/bx_default_logo.gif" alt="" />
+<img src="/images/123.JPG" width="177" height="110">
