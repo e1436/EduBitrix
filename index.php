@@ -5,7 +5,7 @@ $APPLICATION->SetTitle("Биржа недвижимости");
 ?>
 <!-- <p>Компонент ленты новостей (bitrix:news.list) с фильтрацией "Приоритетная"</p> -->
 
-<div class="slide-one-item home-slider owl-carousel">
+
 <?
 $GLOBALS["arrFilter"] = array("PROPERTY_PRIORITY_DEAL_VALUE" => "Да");
 $APPLICATION->IncludeComponent(
@@ -75,7 +75,7 @@ $APPLICATION->IncludeComponent(
 	false
 );?>
 
-  </div>
+
 <!--
 <p>
 	 <?$APPLICATION->IncludeComponent(
@@ -144,6 +144,7 @@ $APPLICATION->IncludeComponent(
 	false
 );?>
 </p> -->
+
   <div class="py-5">
     <div class="container">
       <div class="row">
@@ -187,7 +188,8 @@ $APPLICATION->IncludeComponent(
       </div>
     </div>
   </div>
-<!-- <b><span style="font-size: 13pt;">Компонент ленты новостей (bitrix:news.line) (должны выводиться 9 последних объявлений) :</span></b> -->
+
+<!-- <b><span style="font-size: 13pt;">Компонент ленты новостей (bitrix:news.line) (должны выводиться 9 последних объявлений) :</span></b> 
 <p>
 	 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line", 
@@ -215,18 +217,9 @@ $APPLICATION->IncludeComponent(
 	),
 	false
 );?>
-</p>
-  <div class="site-section site-section-sm bg-light">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12">
-          <div class="site-section-title">
-            <h2>Новая недвижимость для вас</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-5">
-		<?$APPLICATION->IncludeComponent(
+</p> -->
+
+<?$APPLICATION->IncludeComponent(
 	"bitrix:news.line", 
 	"property_list", 
 	array(
@@ -256,13 +249,8 @@ $APPLICATION->IncludeComponent(
 	false
 );?>
 
-      </div>
 
-    </div>
-  </div>
-
-
-<!-- <b><span style="font-size: 13pt;">Компонент ленты новостей (bitrix:news.line) (Должны выводиться 6 сервисов) :</span></b> -->
+<!-- <b><span style="font-size: 13pt;">Компонент ленты новостей (bitrix:news.line) (Должны выводиться 6 сервисов) :</span></b>
 	 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line", 
 	".default", 
@@ -290,19 +278,9 @@ $APPLICATION->IncludeComponent(
 	),
 	false
 );?>
+-->
 
-  <div class="site-section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-7 text-center mb-5">
-          <div class="site-section-title">
-            <h2>Наши услуги</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-		<?$APPLICATION->IncludeComponent(
+<?$APPLICATION->IncludeComponent(
 	"bitrix:news.line", 
 	"services_template", 
 	array(
@@ -330,12 +308,9 @@ $APPLICATION->IncludeComponent(
 	),
 	false
 );?>
-      </div>
 
-    </div>
-  </div>
 
-<!-- <b><span style="font-size: 13pt;">Компонент ленты новостей (bitrix:news.line) (должны выводиться 3 последних новости) :</span></b> -->
+<!-- <b><span style="font-size: 13pt;">Компонент ленты новостей (bitrix:news.line) (должны выводиться 3 последних новости) :</span></b>
 <p>
 	 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line", 
@@ -362,18 +337,9 @@ $APPLICATION->IncludeComponent(
 		"COMPONENT_TEMPLATE" => ".default"
 	),
 	false
-);?>
-  <div class="site-section bg-light">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-md-7 text-center">
-          <div class="site-section-title">
-            <h2>Наш блог</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-			 <?$APPLICATION->IncludeComponent(
+);?> -->
+
+<?$APPLICATION->IncludeComponent(
 	"bitrix:news.line", 
 	"blog", 
 	array(
@@ -401,8 +367,4 @@ $APPLICATION->IncludeComponent(
 	false
 );?>
 
-      </div>
-
-    </div>
-  </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
