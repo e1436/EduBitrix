@@ -43,7 +43,7 @@ $this->setFrameMode(true);
               <div class="inner">
                 <span class="price rounded">₽ <?=$arItem["PROPERTY_PRICE_VALUE"]?></span>
                 <h3 class="title"><?=$arItem["NAME"]?></h3>
-                <p class="location">Los Angeles, CA 90005</p>
+                <p class="location"><?=$arItem["PREVIEW_TEXT"]?></p>
               </div>
               <div class="prop-more-info">
                 <div class="inner d-flex">

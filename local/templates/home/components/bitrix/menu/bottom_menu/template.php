@@ -12,21 +12,11 @@ foreach($arResult as $arItem):?>
 		<?=str_repeat("", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
 	<?endif?>
 
-	<?if ($arItem["IS_PARENT"]):?>
+	<?if ($arItem["IS_PARENT"] || $arItem["DEPTH_LEVEL"] == 1):?>
 
-		<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-	<li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-		<?endif?>
-
-	<?else:?>
-
-		<?if ($arItem["PERMISSION"] > "D"):?>
-	
-				<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-				<li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-				<?endif?>
-	
-		<?endif?>
+			<?if($arItem["PERMISSION"] > "D"): ?>
+					<li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
+			<?endif;?>
 
 	<?endif?>
 

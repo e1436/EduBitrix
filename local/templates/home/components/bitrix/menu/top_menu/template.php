@@ -12,34 +12,17 @@
 			<?=str_repeat("</ul></li>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
 		<?endif?>
 
-	<?if ($arItem["IS_PARENT"]):?>
+	<?if($arItem["PERMISSION"] > "D"): ?>
 
-		<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-			<li class="has-children <?if ($arItem["SELECTED"]):?> active <?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
-				<ul class="dropdown">
+		<?if ($arItem["IS_PARENT"]):?>
+	
+				<li class="has-children <?if ($arItem["SELECTED"]):?> active <?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
+					<ul class="dropdown">
+	
 		<?else:?>
-			<li class="has-children <?if ($arItem["SELECTED"]):?> active <?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
-				<ul class="dropdown">
-		<?endif?>
-
-	<?else:?>
-
-		<?if ($arItem["PERMISSION"] > "D"):?>
-
-			<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-				<li <?if ($arItem["SELECTED"]):?>class="active"<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-			<?else:?>
-				<li <?if ($arItem["SELECTED"]):?>class="active"<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-			<?endif?>
-
-		<?else:?>
-
-			<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-				<li <?if ($arItem["SELECTED"]):?>class="active"<?endif?>><a href="" title="<?=GetMessage("MENU_ITEM_ACCESS_DENIED")?>"><?=$arItem["TEXT"]?></a></li>
-			<?else:?>
+	
 				<li <?if ($arItem["SELECTED"]):?>class="active"<?endif?>><a href="" class="denied" title="<?=GetMessage("MENU_ITEM_ACCESS_DENIED")?>"><?=$arItem["TEXT"]?></a></li>
-			<?endif?>
-
+	
 		<?endif?>
 
 	<?endif?>

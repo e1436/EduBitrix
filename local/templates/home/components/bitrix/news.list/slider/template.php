@@ -34,7 +34,7 @@ $this->setFrameMode(true);
 		   }
 		?>
         <h2><?=$arItem['NAME'] ?></h2>
-        <p class="location"><span class="property-icon icon-room"></span> Los Angeles, CA 90005</p>
+        <p class="location"><span class="property-icon icon-room"></span> <?=$arItem["PREVIEW_TEXT"]?></p>
 		  <p class="mb-2"><strong>₽ <?=$arItem["DISPLAY_PROPERTIES"]["PRICE"]["VALUE"] ?></strong></p>
         <p class="mb-0"><a href="<?=$arItem['DETAIL_PAGE_URL'] ?>" class="text-uppercase small letter-spacing-1 font-weight-bold"><?=GetMessage("MORE_DETAILS") ?></a></p>
       </div>
