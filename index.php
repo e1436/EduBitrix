@@ -229,11 +229,13 @@ $APPLICATION->IncludeComponent(
 		"CACHE_TYPE" => "A",
 		"DETAIL_URL" => "",
 		"FIELD_CODE" => array(
-			0 => "PREVIEW_PICTURE",
-			1 => "PROPERTY_PRICE",
-			2 => "PROPERTY_GARAGE",
-			3 => "PROPERTY_TOTAL_AREA",
-			4 => "PROPERTY_BATHROOMS",
+			0 => "PREVIEW_TEXT",
+			1 => "PREVIEW_PICTURE",
+			2 => "PROPERTY_PRICE",
+			3 => "PROPERTY_GARAGE",
+			4 => "PROPERTY_TOTAL_AREA",
+			5 => "PROPERTY_BATHROOMS",
+			6 => "",
 		),
 		"IBLOCKS" => array(
 			0 => "5",

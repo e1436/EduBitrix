@@ -143,35 +143,29 @@ IncludeTemplateLangFile(__FILE__);
 	)
 );?>
 
-      <!--        <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="active">
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="has-children">
-                  <a href="properties.html">Properties</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Buy</a></li>
-                    <li><a href="#">Rent</a></li>
-                    <li><a href="#">Lease</a></li>
-                    <li class="has-children">
-                      <a href="#">Menu</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul> -->
             </nav>
           </div>
-
 
         </div>
       </div>
     </div>
-  </div>
+<?
+use Bitrix\Main\Application, Bitrix\Main\Web\Uri;
+$request = Application::getInstance()->getContext()->getRequest();
+$uriString = $request->getRequestUri();
+$uri = new Uri($uriString);
+$url = $uri->GetPath();
+
+if($url != "/") {
+		$APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumb", Array(
+			"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+				"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+				"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+			),
+			false
+		);
+}
+
+?>
+
+ </div>
