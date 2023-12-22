@@ -20,8 +20,8 @@
 					<ul class="dropdown">
 	
 		<?else:?>
-	
-				<li <?if ($arItem["SELECTED"]):?>class="active"<?endif?>><a href="" class="denied" title="<?=GetMessage("MENU_ITEM_ACCESS_DENIED")?>"><?=$arItem["TEXT"]?></a></li>
+
+				<li <?if ($arItem["SELECTED"]):?>class="active"<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
 	
 		<?endif?>
 
