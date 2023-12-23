@@ -356,7 +356,7 @@ $APPLICATION->IncludeComponent(
 			2 => "",
 		),
 		"IBLOCKS" => array(
-			0 => "1",
+			0 => "7",
 		),
 		"IBLOCK_TYPE" => "news",
 		"NEWS_COUNT" => "3",
