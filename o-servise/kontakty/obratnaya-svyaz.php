@@ -11,7 +11,7 @@ $APPLICATION->SetTitle("Обратная связь");
 		"COMPONENT_TEMPLATE" => "feedback",
 		"USE_CAPTCHA" => "N",
 		"OK_TEXT" => "Спасибо, ваше сообщение принято.",
-		"EMAIL_TO" => "elikomov@yandex.ru",
+		"EMAIL_TO" => "service@localhost",
 		"REQUIRED_FIELDS" => array(
 			0 => "NONE",
 		),
