@@ -28,6 +28,10 @@ $arTemplateParameters = array(
 		"DEFAULT" =>"N",
 		"REFRESH"=> "Y",
 	),
+	"BLOCK_LIST_TITLE" => Array(
+		"NAME" => GetMessage("BLOCK_LIST_TITLE"),
+		"TYPE" => "STRING",
+	),
 );
 
 if (($arCurrentValues['USE_SHARE'] ?? 'N') === 'Y')

@@ -12,7 +12,9 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-
+<?
+$current_url = $APPLICATION->GetCurPage();
+if ($current_url != "/lichnyy-kabinet-prodavtsa/moi-obyavleniya/"):?>
 <div class="pt-5">
       <div class="container">
         <form class="row">
@@ -105,63 +107,67 @@ $this->setFrameMode(true);
         </form>
   </div>
 </div>
+<?endif;?>
 
   <div class="site-section site-section-sm bg-light">
     <div class="container">
       <div class="row mb-5">
         <div class="col-12">
           <div class="site-section-title">
-            <h2><?=GetMessage("NEW_PROPERTY_FOR_YOU")?></h2>
+			  <h2><?= $arParams["BLOCK_LIST_TITLE"] == null ? GetMessage("NEW_PROPERTY_FOR_YOU") : $arParams["BLOCK_LIST_TITLE"]?></h2>
           </div>
         </div>
       </div>
       <div class="row mb-5">
-
-	<?foreach($arResult["ITEMS"] as $arItem):?>
-		<?
-		$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-		$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-		?>
-		<?
-		if(!$arItem["PROPERTY_PRICE_VALUE"]){
-			 $arItem["PROPERTY_PRICE_VALUE"] = "[Цена не указана]";
-		   }
-		?>
-		<div id="<?=$this->GetEditAreaId($arItem['ID']);?>" class="col-md-6 col-lg-4 mb-4">
-          <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="prop-entry d-block">
-            <figure>
-              <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="Image" class="img-fluid">
-            </figure>
-            <div class="prop-text">
-              <div class="inner">
-                <span class="price rounded">₽ <?=$arItem["PROPERTY_PRICE_VALUE"]?></span>
-                <h3 class="title"><?=$arItem["NAME"]?></h3>
-                <p class="location"><?=$arItem["PREVIEW_TEXT"]?></p>
-              </div>
-              <div class="prop-more-info">
-                <div class="inner d-flex">
-                  <div class="col">
-                    <span><?=GetMessage("AREA")?>:</span>
-                    <strong><?=$arItem["PROPERTY_TOTAL_AREA_VALUE"] == null ? '-' : $arItem["PROPERTY_TOTAL_AREA_VALUE"]?> m<sup>2</sup></strong>
-                  </div>
-                  <div class="col">
-                    <span><?=GetMessage("BEDS")?>:</span>
-                    <strong>-</strong>
-                  </div>
-                  <div class="col">
-                    <span><?=GetMessage("BATHROOMS")?>:</span>
-					  <strong><?=$arItem["PROPERTY_BATHROOMS_VALUE"] == null ? '-' : $arItem["PROPERTY_BATHROOMS_VALUE"]?></strong>
-                  </div>
-                  <div class="col">
-                    <span><?=GetMessage("GARAGES")?>:</span>
-                    <strong><?=$arItem["PROPERTY_GARAGE_VALUE"] == null ? 'Нет' : $arItem["PROPERTY_GARAGE_VALUE"]?></strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-	<?endforeach;?>
+	<?if($arResult["ITEMS"]):?>
+		<?foreach($arResult["ITEMS"] as $arItem):?>
+			<?
+			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+			?>
+			<?
+			if(!$arItem["PROPERTY_PRICE_VALUE"]){
+				 $arItem["PROPERTY_PRICE_VALUE"] = "[Цена не указана]";
+			   }
+			?>
+			<div id="<?=$this->GetEditAreaId($arItem['ID']);?>" class="col-md-6 col-lg-4 mb-4">
+			  <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="prop-entry d-block">
+				<figure>
+				  <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="Image" class="img-fluid">
+				</figure>
+				<div class="prop-text">
+				  <div class="inner">
+					<span class="price rounded">₽ <?=$arItem["PROPERTY_PRICE_VALUE"]?></span>
+					<h3 class="title"><?=$arItem["NAME"]?></h3>
+					<p class="location"><?=$arItem["PREVIEW_TEXT"]?></p>
+				  </div>
+				  <div class="prop-more-info">
+					<div class="inner d-flex">
+					  <div class="col">
+						<span><?=GetMessage("AREA")?>:</span>
+						<strong><?=$arItem["PROPERTY_TOTAL_AREA_VALUE"] == null ? '-' : $arItem["PROPERTY_TOTAL_AREA_VALUE"]?> m<sup>2</sup></strong>
+					  </div>
+					  <div class="col">
+						<span><?=GetMessage("BEDS")?>:</span>
+						<strong>-</strong>
+					  </div>
+					  <div class="col">
+						<span><?=GetMessage("BATHROOMS")?>:</span>
+						  <strong><?=$arItem["PROPERTY_BATHROOMS_VALUE"] == null ? '-' : $arItem["PROPERTY_BATHROOMS_VALUE"]?></strong>
+					  </div>
+					  <div class="col">
+						<span><?=GetMessage("GARAGES")?>:</span>
+						<strong><?=$arItem["PROPERTY_GARAGE_VALUE"] == null ? 'Нет' : $arItem["PROPERTY_GARAGE_VALUE"]?></strong>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </a>
+			</div>
+		<?endforeach;?>
+	<?else: ?>
+		  <p style="margin-left:20px;"><?=GetMessage("NO_ANNOUNEMENTS_FOUND")?></p>
+	<?endif?>
     </div>
 	<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<br /><?=$arResult["NAV_STRING"]?>

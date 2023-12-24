@@ -35,11 +35,12 @@ if($arParams["USE_SEARCH"]=="Y"):?>
 	$component,
 		['HIDE_ICONS' => 'Y']
 );?>
-<br />
+<!-- <br /> -->
 <?php
 endif;
+
 if($arParams["USE_FILTER"]=="Y"):
-$APPLICATION->IncludeComponent(
+/* $APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"",
 	[
@@ -55,12 +56,14 @@ $APPLICATION->IncludeComponent(
 	],
 	$component,
 	['HIDE_ICONS' => 'Y']
-);
+); */
+
 ?>
-<br />
+<!-- <br /> -->
 
 <?php
 endif;
+
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"property_list",
@@ -110,6 +113,7 @@ $APPLICATION->IncludeComponent(
 		"FILTER_NAME" => $arParams["FILTER_NAME"],
 		"HIDE_LINK_WHEN_NO_DETAIL" => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
 		"CHECK_DATES" => $arParams["CHECK_DATES"],
+		"BLOCK_LIST_TITLE" => $arParams["BLOCK_LIST_TITLE"],
 	],
 	$component
 );

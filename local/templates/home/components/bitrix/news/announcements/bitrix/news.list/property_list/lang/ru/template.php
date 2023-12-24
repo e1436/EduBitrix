@@ -5,4 +5,5 @@ $MESS["BATHROOMS"] = "Санузлы";
 $MESS["GARAGES"] = "Гараж";
 $MESS["BEDS"] = "Кровати";
 $MESS["NEW_PROPERTY_FOR_YOU"] = "Новая недвижимость для вас";
+$MESS["NO_ANNOUNEMENTS_FOUND"] ="На данный момент вы не создали ни одного объявления"
 ?>
