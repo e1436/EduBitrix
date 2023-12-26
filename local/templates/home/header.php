@@ -84,6 +84,7 @@ IncludeTemplateLangFile(__FILE__);
 				); ?>
           
           </div>
+			
 				<?  $APPLICATION->IncludeComponent(
 					"bitrix:main.include", 
 					".default", 
@@ -142,7 +143,7 @@ IncludeTemplateLangFile(__FILE__);
 	"ACTIVE_COMPONENT" => "Y"
 	)
 );?>
-
+			
             </nav>
           </div>
 

@@ -34,6 +34,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Авторизация", 
+		SITE_DIR."/?login=yes", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

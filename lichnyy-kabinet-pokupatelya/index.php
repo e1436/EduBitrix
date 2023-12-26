@@ -11,7 +11,7 @@ $APPLICATION->SetTitle("Личный кабинет покупателя");
 		"USER_PROPERTY" => array(
 		),
 		"SEND_INFO" => "N",
-		"CHECK_RIGHTS" => "Y",
+		"CHECK_RIGHTS" => "N",
 		"USER_PROPERTY_NAME" => ""
 	),
 	false
