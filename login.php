@@ -24,11 +24,11 @@ if($USER->GetID()){
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:system.auth.form", 
-	".default", 
+	"auth_form", 
 	array(
-		"COMPONENT_TEMPLATE" => ".default",
+		"COMPONENT_TEMPLATE" => "auth_form",
 		"REGISTER_URL" => "registration.php",
-		"FORGOT_PASSWORD_URL" => "",
+		"FORGOT_PASSWORD_URL" => "forgot-password.php",
 		"PROFILE_URL" => "login.php",
 		"SHOW_ERRORS" => "Y"
 	),

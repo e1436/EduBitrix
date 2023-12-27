@@ -13,7 +13,8 @@ $APPLICATION->SetTitle("Обратная связь");
 		"OK_TEXT" => "Спасибо, ваше сообщение принято.",
 		"EMAIL_TO" => "service@localhost",
 		"REQUIRED_FIELDS" => array(
-			0 => "NONE",
+			0 => "NAME",
+			1 => "EMAIL",
 		),
 		"EVENT_MESSAGE_ID" => array(
 			0 => "7",
