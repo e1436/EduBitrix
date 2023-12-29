@@ -9,7 +9,6 @@ BX.ready(function() {
 	  BX.bind(starList[i], "click", clickStar);
 	}
 
-
 });
 //	BX.bind('div', "click", function() {alert('click!')});
 

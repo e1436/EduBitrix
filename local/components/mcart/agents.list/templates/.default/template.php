@@ -15,9 +15,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-?><?
-use Bitrix\Main\Page\Asset;
-Asset::getInstance()->addJs("script.js");
 ?>
 <div class="site-section site-section-sm bg-light">
    <div class="container agents-list">
@@ -29,26 +26,10 @@ Asset::getInstance()->addJs("script.js");
           </div>
         </div>
     <div class="mb-5">
-	<?
-		$favouriteAgents = [];
-
-		if($USER->GetID() > 0){
-			$category = "agents";
-			$name = "user_favourite_agents";
-			$user_id = false;
-
-			$favouriteAgents = CUserOptions::GetOption($category, $name, false, $user_id);
-			if(!$favouriteAgents){
-				CUserOptions::SetOption($category, $name, array(), false, $user_id);
-				$favouriteAgents = [];
-			} 
-		}
-	
-	?>
 	<?foreach($arResult["AGENTS"]["ITEMS"] as $arItem):?>
 		<div class="agent__card">
                 <div class="small-info">
-                    <div class="avatar" style="background-image: url(<?=$arItem["UF_PHOTO"]?>);"></div>
+					<div class="avatar" style="background-image: url(<?= !$arItem["UF_PHOTO"] ? $this->GetFolder()."/images/no-avatar.png" : $arItem["UF_PHOTO"]?>);"></div>
                     <div class="info">
                         <div class="name"><?=$arItem["UF_NAME"]?></div>
                     </div>
@@ -69,7 +50,7 @@ Asset::getInstance()->addJs("script.js");
                         </div>
                     </div>
                 </div>
-			<a data-agent="<?=$arItem["ID"]?>" class="star <?if(array_search($arItem["ID"], $favouriteAgents) !== false):?>active<?endif?>">
+			<a data-agent="<?=$arItem["ID"]?>" class="star <?if(array_search($arItem["ID"], $arResult["STAR_AGENTS"]) !== false):?>active<?endif?>">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 4L14.472 9.26604L20 10.1157L16 14.2124L16.944 20L12 17.266L7.056 20L8 14.2124L4 10.1157L9.528 9.26604L12 4Z" stroke="#95929A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>

@@ -33,6 +33,9 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
     protected string $cacheKey;
     protected string $cachePatch;
 
+	protected string $settings_category = "agents";
+	protected string $settings_name = "user_favourite_agents";
+
     /**
      * Получение ошибок
      */
@@ -176,7 +179,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
          * Получить Избранных агентов для текущего пользователя записать их в массив $this->arResult['STAR_AGENTS']
          * Это можно зделать с помощью CUserOptions::GetOption
          */ 
-         $this->arResult['STAR_AGENTS'] = CUserOptions::GetOption($category, $name);
+         $this->arResult['STAR_AGENTS'] = CUserOptions::GetOption($this->settings_category, $this->settings_name, array());
         /*
          * Данного метода нет в документации, код метода и его параметры можно найти в ядре (/bitrix/modules/main/) или в гугле
          * $category - это категория настройки, можете придумать любую, например mcart_agent
@@ -325,7 +328,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
 			if($arAgent['UF_PHOTO'] > 0){
 				$arAgent['UF_PHOTO'] = CFile::GetPath($arAgent['UF_PHOTO']);
 			} else {
-				$arAgent['UF_PHOTO'] =  "/local/components/mcart/agents.list/templates/.default/images/no-avatar.png";
+				$arAgent['UF_PHOTO'] = false;
 			}
 
 			$arAgent['UF_ACTIVITY_TYPE'] = $arTypeAgents[$arAgent['UF_ACTIVITY_TYPE'] - 1]['VALUE'];
